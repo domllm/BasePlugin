@@ -1,0 +1,34 @@
+name: Build and Deploy Chrome Extension
+
+on:
+  push:
+    branches:
+      - main  # Set this to your default branch
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Set this to your project's required Node.js version
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Build Script
+      run: npm run build
+
+    - name: Package Extension
+      run: npm run package  # Ensure you have a script to package your extension
+
+    - name: Archive Production Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: extension
+        path: dist/extension.zip
