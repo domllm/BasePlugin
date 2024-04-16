@@ -1,0 +1,27 @@
+{
+  "name": "BasePlugin",
+  "version": "1.0.0",
+  "description": "\"BasePlugin is a core library that simplifies the creation and management of plugins.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && tsc && node copy-assets.js",
+    "copy-assets": "node copy-assets.js",
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domllm/BasePlugin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/domllm/BasePlugin/issues"
+  },
+  "homepage": "https://github.com/domllm/BasePlugin#readme",
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.5"
+  }
+}
